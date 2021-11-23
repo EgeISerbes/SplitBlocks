@@ -36,19 +36,11 @@ public class Trigger : MonoBehaviour
         {
             if (BrickStack[i].isInSafeArea)
             {   
-                pos.y = BrickStack[i].GetComponent<Rigidbody>().position.y; // rigidbody'sinin y pozisyonu dha değişmediği için y eksenini kullanabilirsin  is in safe area şeklinde yap , engelin üstündeki trigger'a giren eleman safe area'da olsun ve bu süre boyunca pozisyonu resetlenmesin, safe area trigger'ını biraz genişlet ki çıktığı zaman direkt remove edebil
+                pos.y = BrickStack[i].GetComponent<Rigidbody>().position.y; 
 
             }
 
-           /* var brick = BrickStack[i];
-            Vector3 brickPos = brick.transform.position;
-            brickPos.z = pos.z;
-            brickPos.x = Mathf.Lerp(brickPos.x, pos.x, ApproachRate);
-            brickPos.y = Mathf.Lerp(brickPos.y, pos.y, ApproachRate);
-            brick.transform.position = brickPos;
-            
-            pos = brickPos;
-            pos.y += distance;*/
+           
             var brickR = BrickStack[i].GetComponent<Rigidbody>();
             Vector3 brickPos = brickR.position;
             brickPos.z = pos.z;
@@ -58,6 +50,15 @@ public class Trigger : MonoBehaviour
             
             pos = brickPos;
             pos.y += distance;
+            /* var brick = BrickStack[i];
+            Vector3 brickPos = brick.transform.position;
+            brickPos.z = pos.z;
+            brickPos.x = Mathf.Lerp(brickPos.x, pos.x, ApproachRate);
+            brickPos.y = Mathf.Lerp(brickPos.y, pos.y, ApproachRate);
+            brick.transform.position = brickPos;
+            
+            pos = brickPos;
+            pos.y += distance;*/
         }
 
         /*for (int i = 0; i < BrickStack.Count; i++)
